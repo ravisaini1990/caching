@@ -2,9 +2,17 @@ package com.ravi.caching.modal;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
+import java.io.Serializable;
+
+
+/// Use Serializable so AbstractCacheResolver return result in byes form
 @Entity
 @Table(name = "book")
-public class Book {
+public class Book implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L; // Define a fixed version
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +33,8 @@ public class Book {
     @Column
     private String edition;
 
-    public Book() {}
+    public Book() {
+    }
 
     public Book(String name, String category, String author, String publisher, String edition) {
         this.name = name;
