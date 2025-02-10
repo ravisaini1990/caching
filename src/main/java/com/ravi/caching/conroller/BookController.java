@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.rmi.NoSuchObjectException;
 import java.util.List;
 
+import static com.ravi.caching.config.EhcacheConfig.CACHE_STORE_NAME;
+
 @RestController
 @RequestMapping("api/v1")
 public class BookController {
@@ -26,7 +28,8 @@ public class BookController {
         return bookRepository.findAll();
     }
 
-    @Cacheable(cacheNames = "books", key = "#id")
+    @Cacheable(value = CACHE_STORE_NAME, key = "#id")
+    //@Cacheable(cacheNames = "books", key = "#id")
     @GetMapping("/book/{id}")
     public Book findByBookId(@PathVariable int id) {
         return bookRepository.findById(id).orElse(null);
