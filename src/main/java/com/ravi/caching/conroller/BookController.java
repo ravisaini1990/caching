@@ -28,7 +28,9 @@ public class BookController {
         return bookRepository.findAll();
     }
 
-    @Cacheable(value = CACHE_STORE_NAME, key = "#id")
+    @Cacheable("myPersistentCache")
+    //@Cacheable(value = "myPersistentCache", key = "#id")
+    //@Cacheable(value = CACHE_STORE_NAME, key = "#id")
     //@Cacheable(cacheNames = "books", key = "#id")
     @GetMapping("/book/{id}")
     public Book findByBookId(@PathVariable int id) {

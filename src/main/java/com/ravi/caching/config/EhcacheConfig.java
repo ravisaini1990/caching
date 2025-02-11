@@ -14,7 +14,7 @@ import javax.cache.Caching;
 import javax.cache.spi.CachingProvider;
 import java.time.Duration;
 
-@Configuration
+//@Configuration
 public class EhcacheConfig {
 
     public static final String CACHE_STORE_NAME = "cacheStore";

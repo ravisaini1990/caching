@@ -1,0 +1,4 @@
+#Key and value types
+#Mon Feb 10 17:25:13 IST 2025
+keyType=java.lang.Integer
+valueType=com.ravi.caching.modal.Book
